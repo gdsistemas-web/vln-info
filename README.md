@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VLN INFO
 
-## Getting Started
+Site institucional em Next.js para a VLN INFO, com home inspirada na referencia visual fornecida, paginas internas, servicos dinamicos, formulario validado e SEO tecnico.
 
-First, run the development server:
+## Tecnologias
+
+- Next.js App Router
+- React e TypeScript
+- Tailwind CSS
+- Lucide React
+- Framer Motion
+- React Hook Form
+- Zod
+- Next/Image e Next/Font
+- ESLint e Prettier
+
+## Requisitos
+
+- Node.js LTS
+- npm
+
+## Instalar e executar
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build de producao:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variaveis de ambiente
 
-## Learn More
+Copie `.env.example` para `.env.local` quando integrar envio real de e-mail.
 
-To learn more about Next.js, take a look at the following resources:
+- `CONTACT_EMAIL_TO`: destinatario das mensagens.
+- `CONTACT_EMAIL_PROVIDER`: provedor futuro.
+- `CONTACT_EMAIL_API_KEY`: chave futura, sem versionar credenciais reais.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estrutura
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app`: rotas, layout, SEO, API e paginas.
+- `src/components`: layout, home, cards, formulario e UI.
+- `src/data`: conteudo editavel da empresa, servicos, clientes, segmentos e parceiros.
+- `src/lib`: SEO, validacoes e utilitarios.
+- `public/images`: placeholders locais organizados.
 
-## Deploy on Vercel
+## Alterar conteudos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Edite `src/data/company.ts` para telefones, WhatsApp, e-mail, slogan e redes sociais.
+Edite `src/data/services.ts` para titulos, descricoes, slugs, beneficios, FAQ e SEO dos servicos.
+Edite `src/data/clients.ts`, `src/data/partners.ts` e `src/data/segments.ts` para paginas institucionais.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Trocar imagens
+
+Os arquivos em `public/images` sao placeholders locais em SVG. Substitua por imagens finais otimizadas em WebP ou AVIF mantendo proporcao e caminhos atualizados nos dados:
+
+- `hero-cancelas.webp`
+- `hero-catracas.webp`
+- `hero-cftv.webp`
+- `hero-ti.webp`
+- `servico-infraestrutura.webp`
+- `servico-redes.webp`
+- `servico-helpdesk.webp`
+- `servico-backup.webp`
+- `servico-cloud.webp`
+- `servico-seguranca.webp`
+- `empresa-sede.webp`
+- `banner-versiculo.webp`
+
+## Formulario e e-mail
+
+O formulario usa React Hook Form e Zod no cliente, e a rota `POST /api/contato` valida novamente no servidor, aplica honeypot, rejeita campos inesperados, sanitiza textos e limita tentativas por IP em memoria. A entrega por e-mail esta preparada para integracao futura por variaveis de ambiente.
+
+## Deploy na Vercel
+
+1. Configure as variaveis em Project Settings.
+2. Rode `npm run build` localmente.
+3. Publique o repositorio conectado na Vercel.
+4. Ajuste dominio e canonical em `src/lib/seo.ts` se necessario.
+
+## Checklist antes da publicacao
+
+- Substituir placeholders por imagens finais licenciadas.
+- Conferir telefones, WhatsApp e redes sociais reais.
+- Integrar provedor de e-mail na API.
+- Revisar textos juridicos com responsavel legal.
+- Executar `npm run lint`, `npm run typecheck` e `npm run build`.

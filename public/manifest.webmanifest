@@ -1,0 +1,9 @@
+{
+  "name": "VLN INFO",
+  "short_name": "VLN INFO",
+  "description": "Tecnologia, seguranca eletronica e servicos de TI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020D1C",
+  "theme_color": "#075FCB"
+}

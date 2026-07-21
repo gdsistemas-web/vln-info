@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --animate-logo-scroll: logo-scroll 26s linear infinite;
+  @keyframes logo-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  background: #f4f6f9;
+  color: #06172b;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: #21a7ff;
+  color: #020d1c;
+}
+
+@media (min-width: 1024px) {
+  .hero-panel {
+    clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
+    margin-left: -34px;
+  }
+
+  .hero-panel:first-child {
+    margin-left: 0;
+  }
+
+  .hero-panel::after {
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 0 0 1px rgba(2, 13, 28, 0.35);
+    content: "";
+    height: 125%;
+    position: absolute;
+    right: 6%;
+    top: -12%;
+    transform: rotate(11deg);
+    width: 2px;
+    z-index: 5;
+  }
+
+  .hero-panel:last-child::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -9,7 +9,7 @@ import { organizationJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
   "VLN INFO | Tecnologia, Segurança Eletrônica e Serviços de TI",
-  "Soluções completas em cancelas, catracas, CFTV, infraestrutura, redes, suporte, cloud, backup e segurança da informação para empresas em todo o Brasil.",
+  "Soluções completas em programação, CFTV, infraestrutura, redes, suporte, cloud, backup e segurança da informação para empresas em todo o Brasil.",
 );
 
 export default function Home() {

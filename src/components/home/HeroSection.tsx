@@ -1,10 +1,17 @@
 import Image from "next/image";
-import { Code2, ShieldCheck, Headphones, Settings, Cpu, UsersRound, Cctv, MonitorCog } from "lucide-react";
+import { Code2, ShieldCheck, Headphones, Settings, Cpu, UsersRound, Cctv, MonitorCog, Car, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { services } from "@/data/services";
 
-const heroIcons = [Code2, UsersRound, Cctv, MonitorCog];
+const heroIconMap: Record<string, LucideIcon> = {
+  Car,
+  UsersRound,
+  Cctv,
+  MonitorCog,
+  Code2,
+};
+
 const highlights = [
   { label: "Tecnologia de Ponta", icon: Cpu },
   { label: "Segurança Avançada", icon: ShieldCheck },
@@ -43,7 +50,7 @@ export function HeroSection() {
         </div>
         <div className="grid gap-3 px-4 pb-8 sm:grid-cols-2 lg:flex lg:h-full lg:gap-0 lg:px-0 lg:pb-0">
           {services.map((service, index) => {
-            const Icon = heroIcons[index] ?? Code2;
+            const Icon = heroIconMap[service.icon] ?? Code2;
             return (
               <a
                 key={service.slug}

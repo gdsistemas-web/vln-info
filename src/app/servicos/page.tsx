@@ -16,7 +16,7 @@ export default function ServicosPage() {
       <section className="bg-[#F4F6F9] py-12">
         <Container>
           <SectionTitle title="Principais soluções" />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{services.map((service) => <ServiceCard key={service.slug} service={service} />)}</div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">{services.map((service) => <ServiceCard key={service.slug} service={service} />)}</div>
           <h2 className="mb-5 mt-12 text-center text-sm font-black uppercase text-[#075FCB]">Serviços de TI</h2>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">{itServices.map((service) => <ITServiceCard key={service.slug} service={service} />)}</div>
           <h2 className="mb-5 mt-12 text-center text-sm font-black uppercase text-[#075FCB]">Serviços Especializados</h2>
